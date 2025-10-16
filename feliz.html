@@ -2,126 +2,138 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>Feliz primer año</title>
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    html,body{height:100%;font-family:'Segoe UI',Roboto,sans-serif;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html,body{
+      height:100%;
+      font-family:'Poppins',sans-serif;
+      overflow-x:hidden;
+    }
 
-    body {
+    body{
       display:flex;
       flex-direction:column;
       align-items:center;
       justify-content:center;
-      background-image: url("Captura de pantalla 2025-10-15 225740.png");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      color:white;
-      overflow:hidden;
+      background:url("patitos.jpg") no-repeat center center/cover;
+      color:#fff;
       position:relative;
-    }
-
-    .card {
-      z-index:2;
       text-align:center;
-      max-width:800px;
-      width:90%;
-      background:rgba(0,0,0,0.6);
-      border-radius:20px;
-      padding:40px;
-      box-shadow:0 12px 35px rgba(0,0,0,0.5);
-      backdrop-filter:blur(5px);
-    }
-
-    h1 {
-      font-size:42px;
-      margin-bottom:20px;
-      text-shadow:0 4px 14px rgba(0,0,0,0.6);
-    }
-
-    p {
-      font-size:18px;
-      line-height:1.6;
-      white-space:pre-wrap;
-      background:rgba(255,255,255,0.15);
       padding:20px;
-      border-radius:12px;
-      box-shadow:inset 0 0 20px rgba(0,0,0,0.3);
     }
 
-    .boton {
-      display:inline-block;
-      margin:10px;
-      color:white;
-      background:linear-gradient(180deg,#ff4b4b,#c10000);
-      text-decoration:none;
-      padding:10px 22px;
-      border-radius:12px;
-      font-weight:700;
-      box-shadow:0 8px 25px rgba(0,0,0,0.4);
-      transition:transform 0.1s ease;
-      cursor:pointer;
+    .card{
+      background:rgba(0,0,0,0.6);
+      padding:30px;
+      border-radius:20px;
+      max-width:700px;
+      width:90%;
+      box-shadow:0 0 25px rgba(0,0,0,0.6);
+      z-index:2;
+      backdrop-filter:blur(6px);
+    }
+
+    h1{
+      font-size:2rem;
+      margin-bottom:15px;
+      color:#ffdddd;
+      text-shadow:0 0 10px #ff4b4b;
+    }
+
+    p{
+      white-space:pre-line;
+      font-size:1.1rem;
+      line-height:1.6;
+      color:#fff;
+      margin-bottom:25px;
+    }
+
+    .botones{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:15px;
+    }
+
+    button,a{
+      background:#e50914;
+      color:#fff;
       border:none;
+      padding:15px 25px;
+      border-radius:15px;
+      font-size:1rem;
+      cursor:pointer;
+      transition:all 0.3s ease;
+      box-shadow:0 5px 15px rgba(0,0,0,0.4);
+      text-decoration:none;
+      font-weight:600;
     }
-    .boton:hover { transform:scale(1.05); }
 
-    .spider {
+    button:hover,a:hover{
+      transform:scale(1.08);
+      background:#ff2e2e;
+    }
+
+    .spiderman{
       position:absolute;
-      width:120px;
-      pointer-events:none;
-      animation: aparecer 1s ease forwards;
-      opacity:0;
+      width:80px;
+      height:auto;
+      animation:flotar 5s ease-in-out infinite;
+      z-index:1;
     }
 
-    @keyframes aparecer {
-      0% { transform:scale(0) rotate(0deg); opacity:0; }
-      100% { transform:scale(1) rotate(360deg); opacity:1; }
+    @keyframes flotar{
+      0%,100%{transform:translateY(0);}
+      50%{transform:translateY(-15px);}
+    }
+
+    /* Responsividad */
+    @media (max-width:600px){
+      h1{font-size:1.6rem;}
+      p{font-size:1rem;}
+      .card{padding:20px;}
+      button,a{font-size:0.9rem;padding:12px 20px;}
+      .spiderman{width:60px;}
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Feliz primer año ❤️</h1>
 
+  <div class="card">
+    <h1>💖 Feliz primer año 💖</h1>
     <p>
 Perdon si por las veces que te hice enojar y peleamos espero, que esto lo pueda
 compensar aunque no sea mucho espero que me puedas perdonar por todas esas veces
-y perdon por hacerte esperar tanto tu regalo jsjss 🕸️
+y perdon por hacerte esperar tanto tu regalo jsjss.Te amo mi vida🕸️
     </p>
 
-    <div>
-      <button class="boton" onclick="crearSpiderman('spiderman-removebg-preview.png')">Boludes 1</button>
-      <a href="index.html" class="boton">Volver al inicio</a>
-      <button class="boton" onclick="crearSpiderman('spiderman_2-removebg-preview.png')">Boludes 2</button>
+    <div class="botones">
+      <button onclick="agregarSpiderman()">Boludes 1</button>
+      <a href="index.html">Volver al inicio</a>
+      <button onclick="agregarSpiderman()">Boludes 2</button>
     </div>
   </div>
 
   <script>
-    function crearSpiderman(imagen) {
-      const spiderman = document.createElement('img');
-      spiderman.src = imagen;
-      spiderman.classList.add('spider');
+    const imagenes = [
+      "spiderman-removebg-preview.png",
+      "spiderman_2-removebg-preview.png"
+    ];
 
-      // Tamaño aleatorio entre 80 y 150px
-      const size = 80 + Math.random() * 70;
-      spiderman.style.width = size + "px";
+    function agregarSpiderman(){
+      const img = document.createElement("img");
+      img.src = imagenes[Math.floor(Math.random() * imagenes.length)];
+      img.className = "spiderman";
+      img.style.left = Math.random() * 90 + "%";
+      img.style.top = Math.random() * 90 + "%";
+      document.body.appendChild(img);
 
-      // Posición aleatoria en la pantalla
-      const x = Math.random() * (window.innerWidth - size);
-      const y = Math.random() * (window.innerHeight - size);
-      spiderman.style.left = x + "px";
-      spiderman.style.top = y + "px";
-
-      document.body.appendChild(spiderman);
-
-      // Desaparece después de unos segundos
-      setTimeout(() => {
-        spiderman.style.transition = "opacity 0.5s ease";
-        spiderman.style.opacity = "0";
-        setTimeout(() => spiderman.remove(), 800);
-      }, 4000);
+      // eliminar después de unos segundos
+      setTimeout(() => img.remove(), 8000);
     }
   </script>
+
 </body>
 </html>
