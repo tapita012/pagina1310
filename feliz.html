@@ -17,56 +17,56 @@
       flex-direction:column;
       align-items:center;
       justify-content:center;
-      background:url("Captura de pantalla 2025-10-15 225740") no-repeat center center/cover;
+      background:url("Captura de pantalla 2025-10-15 225740.png") no-repeat center center/cover;
       color:#fff;
       position:relative;
       text-align:center;
-      padding:20px;
+      padding:15px;
     }
 
     .card{
-      background:rgba(0,0,0,0.6);
-      padding:30px;
-      border-radius:20px;
-      max-width:700px;
-      width:90%;
-      box-shadow:0 0 25px rgba(0,0,0,0.6);
+      background:rgba(0,0,0,0.45);
+      padding:20px;
+      border-radius:18px;
+      max-width:650px;
+      width:95%;
+      box-shadow:0 0 20px rgba(0,0,0,0.5);
       z-index:2;
-      backdrop-filter:blur(6px);
+      backdrop-filter:blur(4px);
     }
 
     h1{
-      font-size:2rem;
-      margin-bottom:15px;
+      font-size:1.7rem;
+      margin-bottom:12px;
       color:#ffdddd;
-      text-shadow:0 0 10px #ff4b4b;
+      text-shadow:0 0 8px #ff4b4b;
     }
 
     p{
       white-space:pre-line;
-      font-size:1.1rem;
-      line-height:1.6;
+      font-size:0.95rem;
+      line-height:1.4;
       color:#fff;
-      margin-bottom:25px;
+      margin-bottom:20px;
     }
 
     .botones{
       display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-      gap:15px;
+      flex-direction:column;
+      align-items:center;
+      gap:12px;
     }
 
     button,a{
       background:#e50914;
       color:#fff;
       border:none;
-      padding:15px 25px;
-      border-radius:15px;
-      font-size:1rem;
+      padding:10px 20px;
+      border-radius:12px;
+      font-size:0.95rem;
       cursor:pointer;
       transition:all 0.3s ease;
-      box-shadow:0 5px 15px rgba(0,0,0,0.4);
+      box-shadow:0 5px 10px rgba(0,0,0,0.4);
       text-decoration:none;
       font-weight:600;
     }
@@ -78,31 +78,32 @@
 
     .spiderman{
       position:absolute;
-      width:80px;
+      width:70px;
       height:auto;
       animation:flotar 5s ease-in-out infinite;
       z-index:1;
+      opacity:0.9;
     }
 
     @keyframes flotar{
       0%,100%{transform:translateY(0);}
-      50%{transform:translateY(-15px);}
+      50%{transform:translateY(-10px);}
     }
 
-    /* Responsividad */
+    /* Responsivo */
     @media (max-width:600px){
-      h1{font-size:1.6rem;}
-      p{font-size:1rem;}
-      .card{padding:20px;}
-      button,a{font-size:0.9rem;padding:12px 20px;}
-      .spiderman{width:60px;}
+      h1{font-size:1.4rem;}
+      p{font-size:0.85rem;}
+      .card{padding:15px;}
+      button,a{font-size:0.85rem;padding:9px 18px;}
+      .spiderman{width:55px;}
     }
   </style>
 </head>
 <body>
 
   <div class="card">
-    <h1>💖 Feliz primer año 💖</h1>
+    <h1>Feliz primer año 💖</h1>
     <p>
 Perdon si por las veces que te hice enojar y peleamos espero, que esto lo pueda
 compensar aunque no sea mucho espero que me puedas perdonar por todas esas veces
@@ -127,14 +128,11 @@ y perdon por hacerte esperar tanto tu regalo jsjss.Te amo mi vida🕸️
       img.src = imagenes[Math.floor(Math.random() * imagenes.length)];
       img.className = "spiderman";
       img.style.left = Math.random() * 90 + "%";
-      img.style.top = Math.random() * 90 + "%";
+      img.style.top = Math.random() * 85 + "%";
       document.body.appendChild(img);
-
-      // eliminar después de unos segundos
       setTimeout(() => img.remove(), 8000);
     }
   </script>
 
 </body>
 </html>
-
